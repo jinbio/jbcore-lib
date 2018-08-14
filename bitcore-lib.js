@@ -4527,7 +4527,6 @@ Network.prototype.toString = function toString() {
  * @return Network
  */
 function get(arg, keys) {
-
     if (~networks.indexOf(arg)) {
         return arg;
     }
@@ -4645,7 +4644,7 @@ addNetwork({
     prefix: 'J',
     txtimestamp: true,
     algorithm: "scrypt",
-    pubkeyhash: 0x43,
+    pubkeyhash: 0x2b,
     privatekey: 0x69,
     scripthash: 0xcc,
     xpubkey: 0x0488b21e,
@@ -9715,7 +9714,6 @@ Transaction.prototype.fromBufferReader = function(reader) {
     $.checkArgument(!reader.finished(), 'No transaction data received');
     var i, sizeTxIns, sizeTxOuts;
     if (!this.network) {
-        console.log("TODO check network...");
         this.network = Networks.livenet;
     }
     this.version = reader.readInt32LE();
