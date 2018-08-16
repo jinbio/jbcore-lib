@@ -4639,7 +4639,7 @@ addNetwork({
     alias: 'mainnet',
     coin: 'jbc',
     url: 'jbcoin:',
-    coinName: 'JBCOIN',
+    coinName: 'JinBioCoin',
     shortName: 'JBC',
     prefix: 'J',
     txtimestamp: true,
