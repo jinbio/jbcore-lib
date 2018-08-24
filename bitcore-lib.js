@@ -4643,6 +4643,7 @@ addNetwork({
     shortName: 'JBC',
     prefix: 'J',
     txtimestamp: true,
+    skipWriteTime:false,
     algorithm: "scrypt",
     pubkeyhash: 0x2b,
     privatekey: 0x69,
@@ -9191,8 +9192,7 @@ var sighash = function sighash(transaction, sighashType, inputNumber, subscript)
         throw new Error("no network !!!");
     }
     var skipSignTime = transaction.network.skipSignTime;
-    if (!skipSignTime)
-        console.log("skip sign");
+    
 
     // Copy transaction
     var txcopy = Transaction.shallowCopy(transaction);
@@ -9905,7 +9905,7 @@ Transaction.prototype.fromString = function(string) {
 Transaction.prototype._newTransaction = function() {
     this.version = CURRENT_VERSION;
     this.nLockTime = DEFAULT_NLOCKTIME;
-    this.ntime = 0;
+    this.ntime = Math.round(new Date().getTime() / 1000);
     this.skipWriteTime = false;
 };
 
